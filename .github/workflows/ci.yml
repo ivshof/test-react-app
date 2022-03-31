@@ -25,7 +25,7 @@ jobs:
         run: npm run build
       - name: Deploy on staging
         if: github.event_name == 'push'
-        run: npx surge --project ./build --domain painstaking-cable.surge.sh --token=SURGE_TOKEN --
+        run: npx surge --project ./build --domain painstaking-cable.surge.sh
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
