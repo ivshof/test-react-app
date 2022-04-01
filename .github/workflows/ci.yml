@@ -26,6 +26,9 @@ jobs:
       - run: npm test -- --coverage
         env:
           CI: true
+      - name: SHOW github.ref
+        run: |
+          echo "github.ref" $GITHUB_REF
       - name: Upload Test Coverage
         uses: actions/upload-artifact@v1
         with:
