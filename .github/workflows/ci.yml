@@ -48,9 +48,14 @@ jobs:
         run: |
           zip -r build.zip ./build
           zip -r coverage.zip ./coverage
+          echo "Show build zip"
+          ls -la | grep build
+          echo "Show coverage zip"
+          ls -la | grep coverage
       - name: Create a release
+        #f: github.event_name == 'push' && github.ref == 'refs/heads/master'
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: npx semantic-release
+        run: npx semantic-release --debug true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
