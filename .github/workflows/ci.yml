@@ -64,6 +64,6 @@ jobs:
       - name: Deploy on prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: npx surge --project ./build --domain my-prod-used-fire.surge.sh
-                env:
+        env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
